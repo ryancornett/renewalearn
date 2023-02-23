@@ -1,0 +1,54 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+body {
+    font-family: Inter;
+}
+
+main {
+    width: 80vw;
+    margin: 3rem auto;
+}
+
+.practice {
+    margin: 0 auto;
+}
+
+.options > ol {
+    padding-left: 40px;
+    font-size: 1.3rem;
+}
+
+.btn {
+    min-width: 120px;
+    min-height: 40px;
+    margin: 0.5rem 0;
+    font-size: 1.5rem;
+    font-family: Inter;
+    background-color: black;
+    color: white;
+}
+
+.btn:hover {
+    background-color: #ddd;
+    color: black;
+    cursor: pointer;
+}
+
+.btn:focus {
+    background-color: #1226bb;
+    color: rgb(234, 244, 127);
+}
+
+.results {
+    min-height: 2rem;
+}
+
+#daily-info {
+    border: 2px solid red;
+}
