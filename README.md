@@ -16,3 +16,11 @@ Check non-project requirements (August Mapp's)
 2. Use a regular expression to validate user input and either prevent the invalid input or inform the user about it (in all cases prevent invalid input from being stored or saved). ("write an expression based on the word problem")
 3. Retrieve data from a third-party API and use it to display something within your app. (math quotes?)
 4. Implement modern interactive UI features (e.g. table/data sorting, autocomplete, drag-and-drop, calendar-date-picker, etc). ("enter date, drop options in correct order")
+
+Submitted via Google submission form:
+### Project Objective: (what you expect the project to do)
+Allow adult education students who attend classes remotely to independently practice skills learned in virtual classes on their laptops, desktops, and/or mobile devices with questions curated by adult education instructors.
+
+### Statement of Work:  (what work needs to be done)
+Objects and arrays to store questions and answers, the logic and functionality to generate question topics selected by the user, a regular expression to validate users' names and other identifying info, a fetch request to a math facts API, a results div that shows students their correct/incorrect answers (sorted).
+

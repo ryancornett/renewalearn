@@ -2,12 +2,19 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    --logo-font: 'Suez One', serif;
+    --serif-font: 'Prata', serif;
+    --sans-font: 'Inter', sans-serif;
+    --teal: #3a98b9;
+    --off-white: #eeeeee;
+    --light-brown: #e8d5c4;
+    --cream: #fff1dc;
+    --logo-size: 14em;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
-
 body {
-    font-family: Inter;
+    font-family: var(--sans-font);
+    background-color: var(--off-white);
 }
 
 main {
@@ -15,8 +22,13 @@ main {
     margin: 3rem auto;
 }
 
+h1 {
+    font-family: var(--serif);
+}
+
 .practice {
     margin: 0 auto;
+    font-family: var(--serif);
 }
 
 .options > ol {
@@ -29,7 +41,6 @@ main {
     min-height: 40px;
     margin: 0.5rem 0;
     font-size: 1.5rem;
-    font-family: Inter;
     background-color: black;
     color: white;
 }
@@ -47,6 +58,10 @@ main {
 
 .results {
     min-height: 2rem;
+}
+
+#description {
+    font-family: var(--logo-font);
 }
 
 #daily-info {
