@@ -214,80 +214,32 @@ const PROBABILITY = new Quiz("Drag and drop the correct answer into the field.",
     question: "If you spun the spinner one time, what is the probability it would land on a white piece?",
     image: "img/spinner-wheel.svg",
     caption: "A circle-wheel divided into eight equal sections with three white spaces, three brown spaces, and two teal spaces. The colors are distributed in a random manner on the source image.",
-    options: ["3 out of 8", "3", "8 in 3", "Neither option"],
+    options: ["3 out of 8", "3", "8 in 3"],
     answer: "3 out of 8"
     },
     {
     id: "026",
-    question: "",
-    image: null,
-    caption: null,
-    options: ["", "", "", ""],
-    answer: ""
+    question: "If you spun the spinner 1 time, what is the probability of landing on either a white piece or a teal piece?",
+    image: "img/spinner-wheel.svg",
+    caption: "A circle-wheel divided into eight equal sections with three white spaces, three brown spaces, and two teal spaces. The colors are distributed in a random manner on the source image.",
+    options: ["3 out of 8", "5 out of 8", "2 out of 8", "5 out of 16"],
+    answer: "5 out of 8"
     },
     {
     id: "027",
-    question: "",
-    image: null,
-    caption: null,
-    options: ["", "", "", ""],
-    answer: ""
+    question: "If you spun the spinner 2 times, what is the chance of landing on a teal piece twice in a row?",
+    image: "img/spinner-wheel.svg",
+    caption: "A circle-wheel divided into eight equal sections with three white spaces, three brown spaces, and two teal spaces. The colors are distributed in a random manner on the source image.",
+    options: ["25%", "12.5%", "6.25%", "1 out of 8"],
+    answer: "6.25%"
     },
     {
     id: "028",
-    question: "",
-    image: null,
-    caption: null,
-    options: ["", "", "", ""],
-    answer: ""
-    },
-    {
-    id: "029",
-    question: "",
-    image: null,
-    caption: null,
-    options: ["", "", "", ""],
-    answer: ""
-    },
-    {
-    id: "030",
-    question: "",
-    image: null,
-    caption: null,
-    options: ["", "", "", ""],
-    answer: ""
-    },
-    {
-    id: "031",
-    question: "",
-    image: null,
-    caption: null,
-    options: ["", "", "", ""],
-    answer: ""
-    },
-    {
-    id: "032",
-    question: "",
-    image: null,
-    caption: null,
-    options: ["", "", "", ""],
-    answer: ""
-    },
-    {
-    id: "033",
-    question: "",
-    image: null,
-    caption: null,
-    options: ["", "", "", ""],
-    answer: ""
-    },
-    {
-    id: "034",
-    question: "",
-    image: null,
-    caption: null,
-    options: ["", "", "", ""],
-    answer: ""
+    question: "If you spun the spinner 2 times, what is the chance of landing on a brown piece the first spin and a white piece on the second?",
+    image: "img/spinner-wheel.svg",
+    caption: "A circle-wheel divided into eight equal sections with three white spaces, three brown spaces, and two teal spaces. The colors are distributed in a random manner on the source image.",
+    options: ["56.25%", ".05625", "5.625%", "75%"],
+    answer: "56.25%"
     }
 ]);
 

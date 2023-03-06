@@ -1,4 +1,13 @@
 import {Quiz, ABSOLUTE_VALUE, WORD_PROBLEMS_ONE, WORD_PROBLEMS_TWO, PROBABILITY, FIGURATIVE_LANGUAGE, ANALOGIES, READING_IN_CONTEXT, AUTHORS_PURPOSE} from "./content.js";
+import {Student, students} from "./student.js";
+import 'https://cdn.interactjs.io/v1.9.20/auto-start/index.js'
+import 'https://cdn.interactjs.io/v1.9.20/actions/drag/index.js'
+import 'https://cdn.interactjs.io/v1.9.20/actions/resize/index.js'
+import 'https://cdn.interactjs.io/v1.9.20/modifiers/index.js'
+import 'https://cdn.interactjs.io/v1.9.20/dev-tools/index.js'
+import interact from 'https://cdn.interactjs.io/v1.9.20/interactjs/index.js'
+
+console.log(students[0]);
 
 let quizzes = [ABSOLUTE_VALUE, WORD_PROBLEMS_ONE, WORD_PROBLEMS_TWO, PROBABILITY, FIGURATIVE_LANGUAGE, ANALOGIES, READING_IN_CONTEXT, AUTHORS_PURPOSE];
 const CONTENT_AREA = document.getElementById('content-area');
@@ -63,7 +72,9 @@ RLA_BUTTON.addEventListener('click', () => makeSelection(1));
 
 //--Insert daily fact from API
 
-'https://uselessfacts.jsph.pl/api/v2/facts/random?language=en'
+// 'https://uselessfacts.jsph.pl/api/v2/facts/random?language=en'
+
+
 
 //--Disable buttons when not necessary
 
@@ -76,5 +87,52 @@ RLA_BUTTON.addEventListener('click', () => makeSelection(1));
     } else if (pageNumber === 'Last page') {
         next.setAttribute("disabled", "");
     } else{}
-}());
+}())
 
+let FNAME = document.getElementById('fname');
+let LNAME = document.getElementById('lname');
+const SUBMIT_FORM = document.getElementById('submit-button');
+SUBMIT_FORM.addEventListener('click', () => {
+    let fName = FNAME.value;
+    let lName = LNAME.value;
+    let usernameSetup = fName.slice(0, 2).toLowerCase() + lName.toLowerCase();
+    let usernameAffix = Math.floor(Math.random() * 1000);
+    let newStudent = new Student ("302", fName, lName, "Lipps", usernameSetup + usernameAffix, "clay123", ["false", "true"])
+    students.push(newStudent);
+    console.log(students);
+})
+
+
+let classDate = document.getElementById('class-date');
+
+$(function() {
+    $('input[name="class-date"]').daterangepicker({
+      singleDatePicker: true,
+      showDropdowns: false,
+      minYear: 1901,
+      maxYear: parseInt(moment().format('YYYY'),10)
+    }, function(start, end, label) {
+      var years = moment().diff(start, 'years');
+    //   alert("You are " + years + " years old!");
+        console.log(classDate.value)
+    });
+  });
+
+
+
+const position = { x: 0, y: 0 }
+
+interact('.draggable').draggable({
+  listeners: {
+    start (event) {
+      console.log(event.type, event.target)
+    },
+    move (event) {
+      position.x += event.dx
+      position.y += event.dy
+
+      event.target.style.transform =
+        `translate(${position.x}px, ${position.y}px)`
+    },
+  }
+})

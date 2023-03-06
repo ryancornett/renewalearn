@@ -15,7 +15,7 @@ Check non-project requirements (August Mapp's)
 1. Use arrays, objects, sets or maps to store and retrieve information that is displayed in your app. (User answers and score)
 2. Use a regular expression to validate user input and either prevent the invalid input or inform the user about it (in all cases prevent invalid input from being stored or saved). ("write an expression based on the word problem")
 3. Retrieve data from a third-party API and use it to display something within your app. (math quotes?)
-4. Implement modern interactive UI features (e.g. table/data sorting, autocomplete, drag-and-drop, calendar-date-picker, etc). ("enter date, drop options in correct order")
+4. Implement modern interactive UI features (e.g. table/data sorting, autocomplete, drag-and-drop, calendar-date-picker, etc).
 
 Submitted via Google submission form:
 ### Project Objective: (what you expect the project to do)
