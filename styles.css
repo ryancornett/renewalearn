@@ -17,6 +17,19 @@ body {
     background-color: var(--off-white);
 }
 
+nav {
+    background-color: white;
+    box-shadow: 0 1px 8px #777;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+    background-color: white;
+}
+
 main {
     width: 80vw;
     margin: 3rem auto;
@@ -38,7 +51,7 @@ h1 {
 
 .btn {
     min-width: 120px;
-    min-height: 40px;
+    min-height: 20px;
     margin: 0.5rem 0;
     font-size: 1.5rem;
     background-color: black;
@@ -52,7 +65,7 @@ h1 {
 }
 
 .btn:focus {
-    background-color: #1226bb;
+    background-color: var(--teal);
     color: rgb(234, 244, 127);
 }
 
@@ -72,7 +85,7 @@ h1 {
     width: 25%;
     min-height: 6.5em;
     margin: 1rem 0 0 1rem;
-    background-color: #29e;
+    background-color: var(--teal);
     color: white;
     border-radius: 0.75em;
     padding: 4%;

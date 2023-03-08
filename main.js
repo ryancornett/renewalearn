@@ -99,6 +99,7 @@ SUBMIT_FORM.addEventListener('click', () => {
     let usernameAffix = Math.floor(Math.random() * 1000);
     let newStudent = new Student ("302", fName, lName, "Lipps", usernameSetup + usernameAffix, "clay123", ["false", "true"])
     students.push(newStudent);
+    // window.location.href = 'quiz.html';
     console.log(students);
 })
 
@@ -136,3 +137,40 @@ interact('.draggable').draggable({
     },
   }
 })
+
+// Form validation using /^([A-Z]{1})([a-z]{0,15})\b$/gm
+
+const regex = /^([A-Z]{1})([a-z]{0,15})\b$/gm;
+
+// Alternative syntax using RegExp constructor
+// const regex = new RegExp('^([A-Z]{1})([a-z]{0,15})\\b$', 'gm')
+
+const str = ``;
+let m;
+
+while ((m = regex.exec(str)) !== null) {
+    // This is necessary to avoid infinite loops with zero-width matches
+    if (m.index === regex.lastIndex) {
+        regex.lastIndex++;
+    }
+    
+    // The result can be accessed through the `m`-variable.
+    m.forEach((match, groupIndex) => {
+        console.log(`Found match, group ${groupIndex}: ${match}`);
+    });
+}
+
+const SEARCH = document.getElementById('search');
+let searchValue = SEARCH.value;
+
+async function search() {
+  let response = await fetch('https://www.googleapis.com/customsearch/v1?key=AIzaSyB3rniYWdFAxsrPJjc1gP8WC0mKC9XUYA4&cx=a7ac1afd10857474a&q=lectures')
+  let data = await response.json();
+  console.log(data.queries.request[0].title.slice(23));
+};
+
+search();
+
+
+
+
