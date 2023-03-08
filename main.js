@@ -162,9 +162,10 @@ while ((m = regex.exec(str)) !== null) {
 
 const SEARCH = document.getElementById('search');
 let searchValue = SEARCH.value;
+const GOOGLE_KEY = process.env.GOOGLE_KEY;
 
 async function search() {
-  let response = await fetch('https://www.googleapis.com/customsearch/v1?key=AIzaSyB3rniYWdFAxsrPJjc1gP8WC0mKC9XUYA4&cx=a7ac1afd10857474a&q=lectures')
+  let response = await fetch(`https://www.googleapis.com/customsearch/v1?key= ${GOOGLE_KEY} &cx=a7ac1afd10857474a&q=lectures`)
   let data = await response.json();
   console.log(data.queries.request[0].title.slice(23));
 };
