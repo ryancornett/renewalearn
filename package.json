@@ -1,5 +1,28 @@
 {
   "dependencies": {
-    "nodejs": "^0.0.0"
-  }
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "nodejs": "^0.0.0",
+    "nodemon": "^2.0.21"
+  },
+  "name": "renewalearn",
+  "description": "Remove RESULTS div and functionality\r Create an empty array; manipulate array by storing answer results and display those after all questions answered\r Randomize answer options\r Find place to host API\r Create a drop-down for categories (Mathematics, Language Arts) and independent practice (Absolute value, id functions, evaluate functions; id nouns/pronouns, correct sentences, make sentences concise)\r Add submit answer button\r Add submitted selection to local storage\r Add 'enter your name' field\r Add functionality for submission auto shifts into next question\r Check project requirements\r Check non-project requirements (August Mapp's)",
+  "version": "1.0.0",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon main.js",
+    "test": "Howdy!"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryancornett/renewalearn.git"
+  },
+  "author": "Ryan Cornett",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ryancornett/renewalearn/issues"
+  },
+  "homepage": "https://github.com/ryancornett/renewalearn#readme"
 }
