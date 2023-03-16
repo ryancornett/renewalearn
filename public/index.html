@@ -10,16 +10,14 @@
         <title>HyFlex Independent Practice</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="/public/styles.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter&family=Prata&family=Suez+One&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+        <link rel="stylesheet" href="/public/styles.css" />
     </head>
     <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+        
         <nav>
             <div class="navbar">
                 <img src="/public/img/RenewaLearnLOGOmultiOnWhite.svg" alt="RenewaLearn text logo" style="width:var(--logo-size)" />
@@ -46,10 +44,6 @@
                 </div>
             </div>
 
-            <div>
-                <span id="fact-span"></span>
-            </div>
-
             <div class="testing">
                     <label for="fname">First name:</label><br>
                     <input type="text" id="fname" name="fname"><br>
@@ -58,27 +52,26 @@
                     <button id="submit-button">Submit</button>
             </div>
 
-            <div class="search">
+            <!-- <div class="search">
                 <label for="search-field" class="search-field">Search</label>
                 <input type="text" id="search" name="search">
-            </div>
-
-            <div class="question-nav">
-                <button id="prev"> ◄ Previous</button>
-                <button id="next">Next ► </button>
-            </div>
+            </div> -->
 
             <label for="class-date">Last Class Attended</label>
             <input type="text" name="class-date" id="class-date" value="" />
 
             <div class="draggable"> Draggable Element </div>
+            
+            <div class="word-text"></div>
 
-            <h4 id="page-number">Page one</h4>
         </main>
-        <script src="main.js" type="module" async defer></script>
+        
+        <script src="https://unpkg.com/interactjs/dist/interact.min.js"></script>
         <script async src="https://cse.google.com/cse.js?cx=a7ac1afd10857474a"></script>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js" async defer></script>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js" async defer></script>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js" async defer></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+        <script src="main.js" type="module" async defer></script>
+
     </body>
 </html>
