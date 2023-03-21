@@ -6,30 +6,40 @@ $(function() {
     maxYear: parseInt(moment().format('YYYY'),10)
   }, function(start, end, label) {
     var years = moment().diff(start, 'years');
-  //   alert("You are " + years + " years old!");
       console.log(classDate.value)
   });
 });
 
+let welcome = document.getElementById('welcome');
+let getYouStarted = document.getElementById('started');
 
+async function timedDisplay(changingElement) {
+  changingElement.classList.add('revealed');
+}
+
+timedDisplay(welcome);
+timedDisplay(getYouStarted);
 
 let wordText = document.querySelector(".word-text");
+let wordLink = document.getElementById('word-link');
 
 async function getWord() {
   let wordRequest = await fetch('http://localhost:5000/word-of-the-day/');
   let wordResponse = await wordRequest.json();
-  wordText.innerHTML = `<p> The word of the day is: ${wordResponse[0].word}.</p>`;
+  return wordResponse;
 };
 
-getWord();
+(async function fillWordPanel() {
+  let wordPanel = await getWord();
+  console.log(wordPanel);
+  wordText.innerHTML = `<h4>The Word of the Day is <u>${wordPanel.word}:</u></h4><p><i>${wordPanel.definitions[0].text}</i></p>`;
+  wordLink.innerHTML = `<h6><a href='https://www.wordnik.com/words/${wordPanel.word}'>Click here</a> for more on the Word of the Day.</h6>`
+})();
 
 
-async function getQuiz() {
-  var quizRequest = await fetch('http://localhost:5000/quiz/');
-  var quizResponse = await quizRequest.json();
-  console.log(quizResponse.items[0]);
-};
-getQuiz();
+
+
+
 
 const CONTENT_AREA = document.getElementById('content-area');
 const QUESTIONS = document.getElementById('question-container');
@@ -82,66 +92,95 @@ function makeSelection(a) {
     console.log(workOn);
 };
 
-const MATH_BUTTON = document.getElementById('math-button');
-MATH_BUTTON.addEventListener('click', () => {
-return makeSelection(0)
-});
-const RLA_BUTTON = document.getElementById('rla-button');
-RLA_BUTTON.addEventListener('click', () => makeSelection(1));
+// const MATH_BUTTON = document.getElementById('math-button');
+// MATH_BUTTON.addEventListener('click', () => {
+// return makeSelection(0)
+// });
+// const RLA_BUTTON = document.getElementById('rla-button');
+// RLA_BUTTON.addEventListener('click', () => makeSelection(1));
 
-// let FNAME = document.getElementById('fname');
-// let LNAME = document.getElementById('lname');
-// const SUBMIT_FORM = document.getElementById('submit-button');
-// SUBMIT_FORM.addEventListener('click', () => {
-//     let fName = FNAME.value;
-//     let lName = LNAME.value;
-//     let usernameSetup = fName.slice(0, 2).toLowerCase() + lName.toLowerCase();
-//     let usernameAffix = Math.floor(Math.random() * 1000);
-//     let newStudent = new Student ("302", fName, lName, "Lipps", usernameSetup + usernameAffix, "clay123", ["false", "true"])
-//     students.push(newStudent);
-//     // window.location.href = 'quiz.html';
-//     console.log(students);
-// })
+const FIRST_PANEL = document.querySelector('.first-reveal');
+const FIRST_FIELDSET = document.getElementById('first-fieldset');
+const SECOND_PANEL = document.querySelector('.second-reveal');
+const SECOND_FIELDSET = document.getElementById('second-fieldset');
+const THIRD_PANEL = document.querySelector('.third-reveal');
+let studentName = document.getElementById('name');
+let emailAddress = document.getElementById('email');
+const NAME_EMAIL_SUBMIT_FORM = document.getElementById('name-email-submit-button');
+let usernameError = document.getElementById('username-error');
+let emailError = document.getElementById('email-error');
 
-
-let classDate = document.getElementById('class-date');
-
-
-const position = { x: 0, y: 0 }
-
-interact('.draggable').draggable({
-  listeners: {
-    start (event) {
-      console.log(event.type, event.target)
-    },
-    move (event) {
-      position.x += event.dx
-      position.y += event.dy
-
-      event.target.style.transform =
-        `translate(${position.x}px, ${position.y}px)`
-    },
-  }
+studentName.addEventListener('input', function(e) {
+    let namePattern = /^([A-Z]{1}[a-z]{1,})$|^([A-Z]{1}[a-z]{1,}\040[A-Z]{1}[a-z]{1,})$|^([A-Z]{1}[a-z]{1,}\040[A-Z]{1}[a-z]{1,}\040[A-Z]{1}[a-z]{1,})$|^$/;
+    let currentName = e.target.value;
+    let validName = namePattern.test(currentName);
+    if(validName) {
+      usernameError.style.visibility = 'hidden';
+    } else {
+      usernameError.style.visibility = 'visible';
+    }
+    return currentName;
 })
 
-// // // Form validation using /^([A-Z]{1})([a-z]{0,15})\b$/gm
+emailAddress.addEventListener('input', function(e) {
+  let emailPattern = /^.+@[^\.].*\.[a-z]{2,}$/;
+  let currentEmail = e.target.value;
+  let validEmail = emailPattern.test(currentEmail);
+  if(validEmail) {
+    emailError.style.visibility = 'hidden';
+  } else {
+    emailError.style.visibility = 'visible';
+  }
+  return currentEmail;
+})
 
-// const regex = /^([A-Z]{1})([a-z]{0,15})\b$/gm;
+function checkNameSubmit() {
+  if ((emailError.style.visibility = 'hidden') && (usernameError.style.visibility = 'hidden') && (studentName.value != '') && (emailAddress.value != '')) {
+      let userName = studentName.value;
+      let userEmail = emailAddress.value;
+      let userInput = [userName, userEmail];
+      FIRST_PANEL.style.opacity = '25%';
+      SECOND_PANEL.style.visibility = 'visible';
+      FIRST_FIELDSET.setAttribute('disabled', 'true');
+      return userInput;
+  } else {}
+}
 
-// // // Alternative syntax using RegExp constructor
-// // const regex = new RegExp('^([A-Z]{1})([a-z]{0,15})\\b$', 'gm')
+const LAST_ATTENDED = document.querySelector('.last-attended');
+NAME_EMAIL_SUBMIT_FORM.addEventListener('click', function() {
+  checkNameSubmit();
+  let userData = checkNameSubmit();
+  LAST_ATTENDED.textContent = `Welcome, ${userData[0]}! When did you last attend class?`;
+})
 
-// const str = ``;
-// let m;
+let classDate = document.getElementById('class-date');
+const INSTRUCTOR = document.getElementById('instructor');
+function checkInstructorSubmit() {
+  if (INSTRUCTOR != '-SELECT-') {
+      let lastDate = classDate.value;
+      let userInstructor = INSTRUCTOR.value;
+      let userSelections = [lastDate, userInstructor];
+      SECOND_PANEL.style.opacity = '25%';
+      THIRD_PANEL.style.visibility = 'visible';
+      SECOND_FIELDSET.setAttribute('disabled', 'true');
+      return userSelections;
+  } else {}
+}
 
-// while ((m = regex.exec(str)) !== null) {
-//     // This is necessary to avoid infinite loops with zero-width matches
-//     if (m.index === regex.lastIndex) {
-//         regex.lastIndex++;
-//     }
-    
-//     // The result can be accessed through the `m`-variable.
-//     m.forEach((match, groupIndex) => {
-//         console.log(`Found match, group ${groupIndex}: ${match}`);
-//     });
-// }
+
+let DATE_INSTRUCTOR_SUBMIT_FORM = document.getElementById('date-instructor-submit-button');
+const INSTRUCTOR_SUGGESTION = document.getElementById('instructor-suggestion');
+DATE_INSTRUCTOR_SUBMIT_FORM.addEventListener('click', function() {
+  checkInstructorSubmit();
+  let userData = checkNameSubmit();
+  let userLastAndInstructor = checkInstructorSubmit();
+  console.log(userLastAndInstructor);
+  INSTRUCTOR_SUGGESTION.innerHTML = `${userLastAndInstructor[1]} would like you to take one of the following quizzes, <b>${userData[0]}</b>:`;
+})
+
+quizArray = [FIGURATIVE_LANGUAGE, ANALOGIES, READING_IN_CONTEXT, AUTHORS_PURPOSE]
+(async function getQuiz() {
+  let quizRequest = await fetch('http://localhost:5000/quiz/');
+  let quizResponse = await quizRequest.json();
+  console.log(quizResponse);
+}());

@@ -12,10 +12,12 @@ Check project requirements
 Check non-project requirements (August Mapp's)
 
 ## FEATURES LIST:
-1. Use arrays, objects, sets or maps to store and retrieve information that is displayed in your app. (User answers and score)
-2. Use a regular expression to validate user input and either prevent the invalid input or inform the user about it (in all cases prevent invalid input from being stored or saved). ("write an expression based on the word problem")
-3. Retrieve data from a third-party API and use it to display something within your app. (math quotes?)
-4. Implement modern interactive UI features (e.g. table/data sorting, autocomplete, drag-and-drop, calendar-date-picker, etc).
+1. Use arrays, objects, sets or maps to store and retrieve information that is displayed in your app: *user's name and quiz score* (FEATURE LIST 1)
+2. Use a regular expression to validate user input and either prevent the invalid input or inform the user about it (in all cases prevent invalid input from being stored or saved): *user's name and email* (FEATURE LIST 1)
+3. Retrieve data from a third-party API and use it to display something within your app: *Word of the Day from Wordnik* (FEATURE LIST 2)
+4. Implement modern interactive UI features: *calendar date picker that appears after successful name and email submission* (FEATURE LIST 3)
+5. Create a node.js web server using a modern framework such as Express.js or Fastify. Serve at least one route that
+your app uses (must serve more than just the index.html file): *Express.js serves /quiz.html* (FEATURE LIST 3)
 
 Submitted via Google submission form:
 ### Project Objective: (what you expect the project to do)

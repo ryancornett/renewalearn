@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -20,18 +16,27 @@
         
         <nav>
             <div class="navbar">
-                <img src="/public/img/RenewaLearnLOGOmultiOnWhite.svg" alt="RenewaLearn text logo" style="width:var(--logo-size)" />
+                <img src="/public/img/RenewaLearnLOGOmultiOnWhite.svg" alt="RenewaLearn text logo" />
                 <div class="gcse-search"></div>
             </div>
         </nav>
         
 
         <main>
-            <h1 class="title">Practice Questions</h1>
-            <button id="math-button">Math</button>
-            <button id="rla-button">Language Arts</button>
-            
-            <div class="practice">
+            <h1 class="title">CCAE Independent Practice</h1>
+            <!-- <button id="math-button">Math</button>
+            <button id="rla-button">Language Arts</button> -->
+            <div>
+                <h4 class= "hidden" id="welcome"> Hello there!</h4>
+                
+                <h4 class="hidden" id="started">Let's get you started</h4>
+            </div>
+
+
+
+
+
+            <!-- <div class="practice">
                 <h2 id="content-area"></h2>
                 <h3 id="question-container"> </h3>
                 <div id="options-container">
@@ -42,29 +47,85 @@
                 <div class="results">
                     <h3 id="result">  </h3>
                 </div>
-            </div>
-
-            <div class="testing">
-                    <label for="fname">First name:</label><br>
-                    <input type="text" id="fname" name="fname"><br>
-                    <label for="lname">Last name:</label><br>
-                    <input type="text" id="lname" name="lname"><br><br>
-                    <button id="submit-button">Submit</button>
-            </div>
-
-            <!-- <div class="search">
-                <label for="search-field" class="search-field">Search</label>
-                <input type="text" id="search" name="search">
             </div> -->
 
-            <label for="class-date">Last Class Attended</label>
-            <input type="text" name="class-date" id="class-date" value="" />
 
-            <div class="draggable"> Draggable Element </div>
+
+
+
+
+            <div class="panels">
+                <fieldset id="first-fieldset">
+                    <div class="first-reveal">
+                            <label for="name">Name:</label><br>
+                            <input type="text" id="name" name="fname" required><br>
+                            <p id="username-error">Capitalized names only--no initials or trailing spaces.</p>
+                            <label for="email">Email:</label><br>
+                            <input type="email" id="email" name="email" required><br>
+                            <p id="email-error">Please enter a valid email address.</p>
+                            <button id="name-email-submit-button">Submit</button>
+                    </div>
+                </fieldset>
+
+                <fieldset id="second-fieldset">
+                    <div class="not-visible second-reveal">
+                        <div class="last-class">
+                            <label for="class-date"><p class="last-attended"></p></label>
+                            <input type="text" name="class-date" id="class-date" value="" />
+                        </div>
+                        <div class="who-is-instructor">
+                            <label for="instructor">Who is your instructor?</label>
+                            <select name="instructor" id="instructor" required>
+                            <option value="initial" selected disabled>-SELECT-</option>
+                            <option value="Rodney">Rodney Lipps</option>
+                            <option value="Tracy">Tracy Simmons</option>
+                            <option value="Ryan">Ryan Cornett</option>
+                            </select>
+                        </div>
+                        <button id="date-instructor-submit-button">Submit</button>
+                    </div>
+                </fieldset>
+
+                <fieldset id="third-fieldset">
+                    <div class="not-visible third-reveal">
+                        <p id='instructor-suggestion'></p>
+                        <button class="quizSelect">Figurative Language</button>
+                        <button class="quizSelect">Analogies</button>
+                        <button class="quizSelect">Reading in Context</button>
+                        <button class="quizSelect">Author's Purpose</button>
+                    </div>
+                </fieldset>
+            </div>
             
-            <div class="word-text"></div>
 
         </main>
+
+        <footer>
+            <div class="word-of-the-day-wrapper">
+                <div class="word-of-the-day">
+                    <div class="word-text"></div>
+                    <div id="word-link"></div>
+                    <div class="word-img">
+                        <a href='http://wordnik.com'><img src="img/wordnik_badge_b2.png" alt='"Powered by Wordnik" badge.' /></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-img">
+                <img src="img/RenewaLearnLOGOoffwhite.svg" alt="RenewaLearn logo" />
+            </div>
+            <div class="county-info">
+                <div class="contact-info">
+                    <h4>Clay County Adult Education</h5>
+                    <p>50 University Drive</p>
+                    <p>Manchester, KY 40962</p>
+                    <p>(606) 599-1230</p>
+                </div>
+
+                <img src="img/CLAYCOUNTY_BLUE_LOGO_2022.png" alt="Clay County Adult Education logo" />
+
+            </div>
+        </footer>
         
         <script src="https://unpkg.com/interactjs/dist/interact.min.js"></script>
         <script async src="https://cse.google.com/cse.js?cx=a7ac1afd10857474a"></script>

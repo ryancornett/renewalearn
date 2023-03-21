@@ -9,34 +9,42 @@
     --off-white: #eeeeee;
     --light-brown: #e8d5c4;
     --cream: #fff1dc;
-    --logo-size: 14em;
+    --warning-color: orangered;
+    --logo-size: 10em;
 }
 
 body {
     font-family: var(--sans-font);
     background-color: var(--off-white);
+    /* overflow-x: hidden; */
 }
 
 nav {
     background-color: white;
     box-shadow: 0 1px 8px #777;
+    width: 100%;
 }
 
 .navbar {
     display: flex;
     justify-content: space-between;
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
     background-color: white;
 }
 
+.navbar > img, .footer-img > img {
+    width: var(--logo-size);
+}
+
 main {
-    width: 80vw;
+    width: 80%;
     margin: 3rem auto;
 }
 
 h1 {
     font-family: var(--serif);
+    font-size: 1.5rem;
 }
 
 .practice {
@@ -77,18 +85,124 @@ h1 {
     font-family: var(--logo-font);
 }
 
-#daily-info {
-    border: 2px solid red;
+#welcome.hidden {
+    opacity: 0;
+    transform: translate(-50%);
 }
 
-.draggable {
+#welcome.revealed {
+    opacity: 100;
+    transform: translate(0);
+    transition: all 1000ms 750ms ease-in-out;
+}
+
+#started.hidden {
+    opacity: 0;
+    transform: translate(10%);
+    width: 80%;
+}
+
+#started.revealed {
+    opacity: 100;
+    transform: translate(40%);
+    transition: all 900ms 2000ms ease-in-out;
+}
+
+.not-visible {
+    visibility: hidden;
+}
+
+#first-fieldset, #second-fieldset, #third-fieldset {
+    border: none;
+    min-width: 30%;
+    margin-right: 3rem;
+}
+
+.first-reveal > p {
+    font-size: 0.75rem;
+}
+
+#username-error, #email-error {
+    visibility: hidden;
+    color: var(--warning-color);
+    font-size: 0.65rem;
+}
+
+.third-reveal {
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    background-color: #333;
+    color: var(--off-white);
+    padding: 2rem 0;
+    width: 100%;
+}
+
+#word-link > h6 > a {
+    text-decoration: none;
+    color: var(--teal);
+    font-weight: bold;
+}
+
+.word-of-the-day-wrapper, .footer-img, .contact-info {
+    text-align: center;
+    max-width: 80%;
+    margin: 1rem auto;
+}
+
+.word-img {
+    text-align: right;
+}
+
+.county-info {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 3rem;
+}
+
+.county-info > img {
     width: 25%;
-    min-height: 6.5em;
-    margin: 1rem 0 0 1rem;
-    background-color: var(--teal);
-    color: white;
-    border-radius: 0.75em;
-    padding: 4%;
-    touch-action: none;
-    user-select: none;
-  }
+    height: 25%;
+}
+
+@media screen and (min-width: 850px) {
+
+    .navbar {
+        width: 80%;
+    }
+
+    .navbar > img, .footer-img > img {
+        width: calc(var(--logo-size) * 1.5);
+    }
+
+    .panels {
+        display: flex;
+        justify-content: space-around;
+        width: 70%;
+        margin: 0 auto;
+        height: 75vh;
+    }
+
+    footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .word-of-the-day-wrapper, .footer-img, .contact-info {
+        text-align: center;
+        max-width: 28%;
+    }
+    
+    .word-of-the-day {
+        text-align: left;
+    }
+
+    footer {
+        padding: 2rem 0;
+        position: fixed;
+        bottom: 0;
+    }
+}

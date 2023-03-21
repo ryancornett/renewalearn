@@ -536,3 +536,19 @@ let ryanCornett = new Student (301, "", "", "Lipps", "rcornett8", "clay123", [])
 let students = [ryanCornett, null];
 
 export {Student, students};
+
+
+
+
+
+emailAddress.addEventListener('input', function(e) {
+  let emailPattern = /^.+@[^\.].*\.[a-z]{2,}$/;
+  let currentEmail = e.target.value;
+  let validEmail = emailPattern.test(currentEmail);
+  if(validEmail) {
+    emailError.style.visibility = 'hidden';
+  } else {
+    emailError.style.visibility = 'visible';
+  }
+  return currentEmail;
+})
