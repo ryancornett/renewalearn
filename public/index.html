@@ -24,8 +24,6 @@
 
         <main>
             <h1 class="title">CCAE Independent Practice</h1>
-            <!-- <button id="math-button">Math</button>
-            <button id="rla-button">Language Arts</button> -->
             <div>
                 <h4 class= "hidden" id="welcome"> Hello there!</h4>
                 
@@ -36,34 +34,19 @@
 
 
 
-            <!-- <div class="practice">
-                <h2 id="content-area"></h2>
-                <h3 id="question-container"> </h3>
-                <div id="options-container">
-                </div>
-            <div class="description">
-                <h3 id="description"></h3>
-            </div>
-                <div class="results">
-                    <h3 id="result">  </h3>
-                </div>
-            </div> -->
-
-
-
 
 
 
             <div class="panels">
                 <fieldset id="first-fieldset">
                     <div class="first-reveal">
-                            <label for="name">Name:</label><br>
-                            <input type="text" id="name" name="fname" required><br>
-                            <p id="username-error">Capitalized names only--no initials or trailing spaces.</p>
-                            <label for="email">Email:</label><br>
-                            <input type="email" id="email" name="email" required><br>
-                            <p id="email-error">Please enter a valid email address.</p>
-                            <button id="name-email-submit-button">Submit</button>
+                        <label for="name">Name:</label><br>
+                        <input type="text" id="name" name="fname" required><br>
+                        <p id="username-error">Capitalized names only--no initials or trailing spaces.</p>
+                        <label for="email">Email:</label><br>
+                        <input type="email" id="email" name="email" required><br>
+                        <p id="email-error">Please enter a valid email address.</p>
+                        <button id="name-email-submit-button">Submit</button>
                     </div>
                 </fieldset>
 
@@ -89,14 +72,75 @@
                 <fieldset id="third-fieldset">
                     <div class="not-visible third-reveal">
                         <p id='instructor-suggestion'></p>
-                        <button class="quizSelect">Figurative Language</button>
-                        <button class="quizSelect">Analogies</button>
-                        <button class="quizSelect">Reading in Context</button>
-                        <button class="quizSelect">Author's Purpose</button>
+                        <button class="open-modal-figurative-language">Figurative Language</button>
+                        <button class="open-modal-analogies">Analogies</button>
+                        <button class="open-modal-reading-in-context">Reading in Context</button>
+                        <button class="open-modal-authors-purpose">Author's Purpose</button>
                     </div>
                 </fieldset>
             </div>
             
+
+
+
+
+            <dialog class="modal figurative-language">
+                <h2 id="content-area">TEST BOYZ</h2>
+                <h3 id="question-container"> </h3>
+                <div id="options-container">
+                </div>
+            <div class="description">
+                <h3 id="description">WHUT?!</h3>
+            </div>
+                <div class="results">
+                    <h3 id="result">  </h3>
+                </div>
+                <button class="close-modal-figurative-language">close</button>
+            </dialog>
+
+            <dialog class="modal analogies">
+                <h2 id="content-area"></h2>
+                <h3 id="question-container"> </h3>
+                <div id="options-container">
+                </div>
+            <div class="description">
+                <h3 id="description"></h3>
+            </div>
+                <div class="results">
+                    <h3 id="result">  </h3>
+                </div>
+                <button class="close-modal-analogies">close</button>
+            </dialog>
+
+            <dialog class="modal reading-in-context">
+                <h2 id="content-area"></h2>
+                <h3 id="question-container"> </h3>
+                <div id="options-container">
+                </div>
+            <div class="description">
+                <h3 id="description"></h3>
+            </div>
+                <div class="results">
+                    <h3 id="result">  </h3>
+                </div>
+                <button class="close-modal-reading-in-context">close</button>
+            </dialog>
+
+            <dialog class="modal authors-purpose">
+                <h2 id="content-area"></h2>
+                <h3 id="question-container"> </h3>
+                <div id="options-container">
+                </div>
+            <div class="description">
+                <h3 id="description"></h3>
+            </div>
+                <div class="results">
+                    <h3 id="result">  </h3>
+                </div>
+                <button class="close-modal-authors-purpose">close</button>
+            </dialog>
+
+
 
         </main>
 

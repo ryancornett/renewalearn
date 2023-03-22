@@ -119,7 +119,6 @@ studentName.addEventListener('input', function(e) {
     } else {
       usernameError.style.visibility = 'visible';
     }
-    return currentName;
 })
 
 emailAddress.addEventListener('input', function(e) {
@@ -128,35 +127,37 @@ emailAddress.addEventListener('input', function(e) {
   let validEmail = emailPattern.test(currentEmail);
   if(validEmail) {
     emailError.style.visibility = 'hidden';
+    console.log(`Email evaluates to ${validEmail}`);
   } else {
     emailError.style.visibility = 'visible';
   }
-  return currentEmail;
 })
 
 function checkNameSubmit() {
-  if ((emailError.style.visibility = 'hidden') && (usernameError.style.visibility = 'hidden') && (studentName.value != '') && (emailAddress.value != '')) {
-      let userName = studentName.value;
-      let userEmail = emailAddress.value;
-      let userInput = [userName, userEmail];
-      FIRST_PANEL.style.opacity = '25%';
-      SECOND_PANEL.style.visibility = 'visible';
-      FIRST_FIELDSET.setAttribute('disabled', 'true');
-      return userInput;
-  } else {}
-}
+  let userName = studentName.value;
+  let userEmail = emailAddress.value;
+  let userInput = [userName, userEmail];
+  FIRST_PANEL.style.opacity = '25%';
+  SECOND_PANEL.style.visibility = 'visible';
+  FIRST_FIELDSET.setAttribute('disabled', 'true');
+  return userInput;
+};
 
 const LAST_ATTENDED = document.querySelector('.last-attended');
+
 NAME_EMAIL_SUBMIT_FORM.addEventListener('click', function() {
-  checkNameSubmit();
-  let userData = checkNameSubmit();
-  LAST_ATTENDED.textContent = `Welcome, ${userData[0]}! When did you last attend class?`;
-})
+  if ((studentName.value != '') && (emailAddress.value != '') && (usernameError.style.visibility == 'hidden') && (emailError.style.visibility == 'hidden')) {
+    checkNameSubmit();
+    let userData = checkNameSubmit();
+    console.log(userData);
+    LAST_ATTENDED.textContent = `Welcome, ${userData[0]}! When did you last attend class?`;
+  } else {}
+});
 
 let classDate = document.getElementById('class-date');
 const INSTRUCTOR = document.getElementById('instructor');
 function checkInstructorSubmit() {
-  if (INSTRUCTOR != '-SELECT-') {
+  if (INSTRUCTOR.value != 'initial') {
       let lastDate = classDate.value;
       let userInstructor = INSTRUCTOR.value;
       let userSelections = [lastDate, userInstructor];
@@ -176,11 +177,59 @@ DATE_INSTRUCTOR_SUBMIT_FORM.addEventListener('click', function() {
   let userLastAndInstructor = checkInstructorSubmit();
   console.log(userLastAndInstructor);
   INSTRUCTOR_SUGGESTION.innerHTML = `${userLastAndInstructor[1]} would like you to take one of the following quizzes, <b>${userData[0]}</b>:`;
-})
+});
 
-quizArray = [FIGURATIVE_LANGUAGE, ANALOGIES, READING_IN_CONTEXT, AUTHORS_PURPOSE]
 (async function getQuiz() {
   let quizRequest = await fetch('http://localhost:5000/quiz/');
   let quizResponse = await quizRequest.json();
   console.log(quizResponse);
 }());
+
+const MODAL_ONE = document.querySelector('.figurative-language');
+const MODAL_TWO = document.querySelector('.analogies');
+const MODAL_THREE = document.querySelector('.reading-in-context');
+const MODAL_FOUR = document.querySelector('.authors-purpose');
+let openModalFigurativeLanguage = document.querySelector('.open-modal-figurative-language');
+let closeModalFigurativeLanguage = document.querySelector('.close-modal-figurative-language');
+let openModalAnalogies = document.querySelector('.open-modal-analogies');
+let closeModalAnalogies = document.querySelector('.close-modal-analogies');
+let openModalReadingInContext = document.querySelector('.open-modal-reading-in-context');
+let closeModalReadingInContext = document.querySelector('.close-modal-reading-in-context');
+let openModalAuthorsPurpose = document.querySelector('.open-modal-authors-purpose');
+let closeModalAuthorsPurpose = document.querySelector('.close-modal-authors-purpose');
+
+openModalFigurativeLanguage.addEventListener('click', () => {
+  MODAL_ONE.showModal();
+  console.log('click');
+});
+closeModalFigurativeLanguage.addEventListener('click', () => {
+  MODAL_ONE.close();
+  console.log('click');
+});
+
+openModalAnalogies.addEventListener('click', () => {
+  MODAL_TWO.showModal();
+  console.log('click');
+});
+closeModalAnalogies.addEventListener('click', () => {
+  MODAL_TWO.close();
+  console.log('click');
+});
+
+openModalReadingInContext.addEventListener('click', () => {
+  MODAL_THREE.showModal();
+  console.log('click');
+});
+closeModalReadingInContext.addEventListener('click', () => {
+  MODAL_THREE.close();
+  console.log('click');
+});
+
+openModalAuthorsPurpose.addEventListener('click', () => {
+  MODAL_FOUR.showModal();
+  console.log('click');
+});
+closeModalAuthorsPurpose.addEventListener('click', () => {
+  MODAL_FOUR.close();
+  console.log('click');
+});
