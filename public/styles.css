@@ -16,7 +16,6 @@
 body {
     font-family: var(--sans-font);
     background-color: var(--off-white);
-    /* overflow-x: hidden; */
 }
 
 nav {
@@ -138,7 +137,9 @@ h1 {
     flex-direction: column;
 }
 
-
+dialog {
+    display: grid;
+}
 
 .modal {
     padding: 1em;
@@ -159,6 +160,69 @@ h1 {
 .modal-scale {
     visibility: visible;
     transform: scale(1);
+}
+
+.content-area {
+    text-align: center;
+    font-weight: bold;
+    margin: 1.5rem 0;
+}
+
+.description {
+    font-size: 0.9rem;
+    color: var(--teal);
+    margin-bottom: 1em;
+}
+
+.instructions {
+    margin: 2rem, 0;
+    font-size: 1.1rem;
+}
+
+.questions-one, .questions-two, .questions-three, .questions-four {
+    font-size: 0.9rem;
+    margin: 0.5em 0;
+}
+
+.hidden-radio {
+    display: none !important;
+}
+
+button {
+    background-color: initial;
+    background-image: linear-gradient(-180deg, #716958, #333);
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    outline: 0;
+    overflow: hidden;
+    padding: 0 10px;
+    pointer-events: auto;
+    position: relative;
+    text-align: center;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: top;
+    white-space: nowrap;
+    width: auto;
+    z-index: 9;
+    border: 0;
+    transition: box-shadow .2s;
+    margin-top: 0.5rem;
+}
+
+button:hover {
+    box-shadow: var(--teal) 0 3px 8px;
+}
+
+.close-modal-figurative-language, .close-modal-analogies, .close-modal-reading-in-context, .close-modal-authors-purpose {
+    margin: 1 auto;
+    text-align: center;
 }
 
 .results-panel {
@@ -235,6 +299,18 @@ footer {
         width: 70%;
         margin: 0 auto;
         height: 75vh;
+    }
+
+    .results-panel {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: solid var(--teal) 2px;
+        display: none;
+        width: 40%;
+        height: 200px;
+        transition: all 250ms ease-in-out;
     }
 
     footer {

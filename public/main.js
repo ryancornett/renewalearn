@@ -401,6 +401,7 @@ openModalAuthorsPurpose.addEventListener('click', () => {
 }, 0.5);
   fillQuizFour();
 });
+
 closeModalAuthorsPurpose.addEventListener('click', () => {
   MODAL_FOUR.classList.remove('modal-scale');
   MODAL_FOUR.close();
