@@ -44,36 +44,8 @@ main {
 h1 {
     font-family: var(--serif);
     font-size: 1.5rem;
-}
-
-.practice {
-    margin: 0 auto;
-    font-family: var(--serif);
-}
-
-.options > ol {
-    padding-left: 40px;
-    font-size: 1.3rem;
-}
-
-.btn {
-    min-width: 120px;
-    min-height: 20px;
-    margin: 0.5rem 0;
-    font-size: 1.5rem;
-    background-color: black;
-    color: white;
-}
-
-.btn:hover {
-    background-color: #ddd;
-    color: black;
-    cursor: pointer;
-}
-
-.btn:focus {
-    background-color: var(--teal);
-    color: rgb(234, 244, 127);
+    text-align: center;
+    margin: -1.5rem 0 0.5rem 0;
 }
 
 .results {
@@ -86,25 +58,27 @@ h1 {
 
 #welcome.hidden {
     opacity: 0;
-    transform: translate(-50%);
+    transform: translate(-200%);
 }
 
 #welcome.revealed {
+    color: var(--teal);
     opacity: 100;
-    transform: translate(0);
-    transition: all 1000ms 750ms ease-in-out;
+    transform: translate(14%);
+    transition: all 700ms 650ms ease-in-out;
 }
 
 #started.hidden {
     opacity: 0;
-    transform: translate(10%);
+    transform: translate(-200%);
     width: 80%;
 }
 
 #started.revealed {
+    color: var(--teal);
     opacity: 100;
-    transform: translate(40%);
-    transition: all 900ms 2000ms ease-in-out;
+    transform: translate(19%);
+    transition: all 700ms 1500ms ease-in-out;
 }
 
 .not-visible {
@@ -223,18 +197,24 @@ button:hover {
 .close-modal-figurative-language, .close-modal-analogies, .close-modal-reading-in-context, .close-modal-authors-purpose {
     margin: 1 auto;
     text-align: center;
+    width: 100%;
+}
+
+input[type="radio"]:checked {
+    accent-color: var(--teal);
 }
 
 .results-panel {
     position: absolute;
-    top: 50%;
+    top: 200px;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -0%);
     border: solid var(--teal) 2px;
     display: none;
-    width: 40%;
-    height: 200px;
+    width: 100%;
+    height: 100px;
     transition: all 250ms ease-in-out;
+    background-color: var(--cream);
 }
 
 .results {
@@ -250,10 +230,13 @@ button:hover {
 }
 
 footer {
-    background-color: #333;
+    background-image: linear-gradient(-180deg, #716958, #333);
+    box-shadow: 0 0 5px #333;
     color: var(--off-white);
     padding: 2rem 0;
     width: 100%;
+    position: sticky;
+    z-index: 100;
 }
 
 #word-link > h6 > a {
@@ -298,25 +281,30 @@ footer {
         justify-content: space-around;
         width: 70%;
         margin: 0 auto;
-        height: 75vh;
+        height: 50vh;
     }
 
     .results-panel {
-        position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        border: solid var(--teal) 2px;
-        display: none;
-        width: 40%;
         height: 200px;
-        transition: all 250ms ease-in-out;
+        width: 50%;
+        margin-bottom: 0;
+    }
+
+    .spacer {
+        height: 0;
+        margin: 0;
     }
 
     footer {
         display: flex;
         justify-content: center;
         align-items: center;
+        padding: 2rem 0;
+        position: fixed;
+        bottom: 0;
     }
 
     .word-of-the-day-wrapper, .footer-img, .contact-info {
@@ -326,11 +314,5 @@ footer {
     
     .word-of-the-day {
         text-align: left;
-    }
-
-    footer {
-        padding: 2rem 0;
-        position: fixed;
-        bottom: 0;
     }
 }

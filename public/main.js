@@ -189,12 +189,17 @@ function removeThreePanels() {
 };
 
 // Fill FIGURATIVE LANGUAGE
-
+const FOOTER = document.querySelector('.footer');
+function setFooter() {
+  FOOTER.style.position = 'fixed';
+  FOOTER.style.bottom = '0';
+};
 const MODAL_ONE = document.querySelector('.figurative-language');
 let openModalFigurativeLanguage = document.querySelector('.open-modal-figurative-language');
 let closeModalFigurativeLanguage = document.querySelector('.close-modal-figurative-language');
 let submitModalFigurativeLanguage = document.querySelector('.submit-modal-figurative-language');
 openModalFigurativeLanguage.addEventListener('click', () => {
+  MODAL_ONE.style.display = "block";
   MODAL_ONE.showModal();
   window.setTimeout(function() {
     MODAL_ONE.classList.add('modal-scale');
@@ -202,6 +207,7 @@ openModalFigurativeLanguage.addEventListener('click', () => {
   fillQuizOne();
 });
 closeModalFigurativeLanguage.addEventListener('click', () => {
+  setFooter();
   MODAL_ONE.classList.remove('modal-scale');
   MODAL_ONE.close();
   removeThreePanels();
@@ -261,6 +267,7 @@ const MODAL_TWO = document.querySelector('.analogies');
 let openModalAnalogies = document.querySelector('.open-modal-analogies');
 let closeModalAnalogies = document.querySelector('.close-modal-analogies');
 openModalAnalogies.addEventListener('click', () => {
+  MODAL_TWO.style.display = "block";
   MODAL_TWO.showModal();
   window.setTimeout(function() {
     MODAL_TWO.classList.add('modal-scale');
@@ -268,6 +275,7 @@ openModalAnalogies.addEventListener('click', () => {
 fillQuizTwo();
 });
 closeModalAnalogies.addEventListener('click', () => {
+  setFooter();
   MODAL_TWO.classList.remove('modal-scale');
   MODAL_TWO.close();
   removeThreePanels();
@@ -326,6 +334,7 @@ const MODAL_THREE = document.querySelector('.reading-in-context');
 let openModalReadingInContext = document.querySelector('.open-modal-reading-in-context');
 let closeModalReadingInContext = document.querySelector('.close-modal-reading-in-context');
 openModalReadingInContext.addEventListener('click', () => {
+  MODAL_THREE.style.display = "block";
   MODAL_THREE.showModal();
   window.setTimeout(function() {
     MODAL_THREE.classList.add('modal-scale');
@@ -333,6 +342,7 @@ openModalReadingInContext.addEventListener('click', () => {
 fillQuizThree();
 });
 closeModalReadingInContext.addEventListener('click', () => {
+  setFooter();
   MODAL_THREE.classList.remove('modal-scale');
   MODAL_THREE.close();
   removeThreePanels();
@@ -348,7 +358,7 @@ closeModalReadingInContext.addEventListener('click', () => {
   for (let b = 0; b < answerArray.length; b++) {
     if (answerArray[b] === 'correct') {
       numberCorrect++;
-    }
+    };
   }
   localStorage.setItem('correctReading', numberCorrect);
   RESULTS_PANEL.style.display = 'block';
@@ -395,6 +405,7 @@ const MODAL_FOUR = document.querySelector('.authors-purpose');
 let openModalAuthorsPurpose = document.querySelector('.open-modal-authors-purpose');
 let closeModalAuthorsPurpose = document.querySelector('.close-modal-authors-purpose');
 openModalAuthorsPurpose.addEventListener('click', () => {
+  MODAL_FOUR.style.display = "block";
   MODAL_FOUR.showModal();
   window.setTimeout(function() {
     MODAL_FOUR.classList.add('modal-scale');
@@ -403,6 +414,7 @@ openModalAuthorsPurpose.addEventListener('click', () => {
 });
 
 closeModalAuthorsPurpose.addEventListener('click', () => {
+  setFooter();
   MODAL_FOUR.classList.remove('modal-scale');
   MODAL_FOUR.close();
   removeThreePanels();
@@ -429,7 +441,25 @@ closeModalAuthorsPurpose.addEventListener('click', () => {
 
 // End functionality to display quiz modals
 
+function hideModals() {
+  MODAL_ONE.style.display = 'none';
+  MODAL_TWO.style.display = 'none';
+  MODAL_THREE.style.display = 'none';
+  MODAL_FOUR.style.display = 'none';
+}
 
+MODAL_ONE.addEventListener('close', () => {
+  hideModals();
+});
+MODAL_TWO.addEventListener('close', () => {
+  hideModals();
+});
+MODAL_THREE.addEventListener('close', () => {
+  hideModals();
+});
+MODAL_FOUR.addEventListener('close', () => {
+  hideModals();
+});
 
 // Begin 'Word of the Day' API call and display
 
