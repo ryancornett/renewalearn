@@ -1,4 +1,4 @@
-![RenewaLearn logo](public\img\RenewaLearnLOGOmultiOnWhite.svg)
+![RenewaLearn logo](https://github.com/ryancornett/renewalearn/blob/main/public/img/RenewaLearnLOGOmultiOnWhite.svg)
 
 # Capstone Project for Code Kentucky Web Dev Course 2 - Ryan Cornett
 
