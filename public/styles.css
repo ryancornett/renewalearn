@@ -120,6 +120,11 @@ h1 {
 
 .first-reveal > p {
     font-size: 0.75rem;
+    display: block;
+}
+
+.second-reveal {
+    display: block;
 }
 
 #username-error, #email-error {
@@ -142,13 +147,43 @@ h1 {
     box-shadow: 0 0 1em rgb(0 0 0 / .3);
     margin: auto;
     width: 90%;
+    transform: scale(0.1);
+    transition: transform 200ms;
  }
   
 .modal::backdrop {
-    background: rgb(0 0 0 / 0.5);
+    background: linear-gradient(45deg, #3a98b9, #a99380);
+    opacity: 50%;
 }
 
+.modal-scale {
+    visibility: visible;
+    transform: scale(1);
+}
 
+.results-panel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: solid var(--teal) 2px;
+    display: none;
+    width: 40%;
+    height: 200px;
+    transition: all 250ms ease-in-out;
+}
+
+.results {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quiz-result {
+    text-align: center;
+    vertical-align: middle;
+}
 
 footer {
     background-color: #333;

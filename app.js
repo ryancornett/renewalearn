@@ -20,11 +20,10 @@ router.get('/api', function (req, res, next) {
 
 function createQuiz() {
   class Quiz {
-    constructor(instructions, description, type, more, items = []) {
+    constructor(instructions, description, more_practice, items = []) {
         this.instructions = instructions;
         this.description = description;
-        this.type = type;
-        this.more = more;
+        this.more_practice = more_practice;
         this.items = items;
     }
   }
@@ -288,7 +287,6 @@ return quizArray;
 
 router.get('/quiz', function (req, res, next) {
   res.send(createQuiz());
-  // res.send('hello world');
 });
 
 app.use(router);
