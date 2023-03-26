@@ -18,7 +18,8 @@ HyFlex is designed to offer a flexible and accessible learning experience to stu
 your app uses (must serve more than just the index.html file): *Express.js serves /quiz objects* (FEATURE LIST 3)
 
 ### How to Run:
-1. Message me on slack for the private value  
-2. Run 'npm run dev'  
-3. Run 'npm start'  
-4. Navigate to http://localhost:5000/public/index.html
+1. Message me on Slack for a private value  
+2. Create file name '.env' in the main folder with key:value pairs provided privately  
+3. Run 'npm install'  
+4. Run 'npm run dev'  
+5. Navigate to http://localhost:5000/public/index.html (NOTE: app defaults to port 5000--can be changed in .env)
