@@ -13,8 +13,8 @@
   "main": "main.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon app.js",
-    "test": "Howdy!"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "repository": {
     "type": "git",

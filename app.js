@@ -292,9 +292,18 @@ router.get('/quiz', function (req, res, next) {
 app.use(router);
 app.use("/public", express.static("./public"));
 
-app.listen(5000, function () {
-    console.log('Node server is running on http://localhost:5000..');
-})
+app.listen(process.env.npm_config_port || process.env.PORT || 5000, () => {
+  if (!process.env.npm_config_port) {
+    console.log(
+      "No port provided in command line. Looking for PORT environment variable."
+    );
+    if (!process.env.PORT) {
+      console.log("No PORT environment variable found. Defaulting to 5000.");
+    }
+  }
+  const port = process.env.npm_config_port || process.env.PORT || 5000;
+  console.log(`Express server listening on port ${port}.`);
+});
 
 
 

@@ -16,6 +16,7 @@
 body {
     font-family: var(--sans-font);
     background-color: var(--off-white);
+    overflow-x: hidden;
 }
 
 nav {
@@ -211,7 +212,7 @@ input[type="radio"]:checked {
     transform: translate(-50%, -0%);
     border: solid var(--teal) 2px;
     display: none;
-    width: 100%;
+    width: 90%;
     height: 100px;
     transition: all 250ms ease-in-out;
     background-color: var(--cream);
